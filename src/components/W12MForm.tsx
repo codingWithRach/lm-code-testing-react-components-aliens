@@ -5,24 +5,38 @@ import TableRowInput from "./TableRowInput";
 import TableRowSelect from "./TableRowSelect";
 import TableRowTextArea from "./TableRowTextarea";
 import TableRowButton from "./TableRowButton";
+import { FormData } from "../data/FormData";
 
-const W12MForm = () => {
-  const [speciesName, setSpeciesName] = useState<string>("");
-  const [planetName, setPlanetName] = useState<string>("");
-  const [numberOfBeings, setNumberOfBeings] = useState<string>("");
+interface FormProps {
+  formData: FormData;
+  handleFormData: Function;
+}
+
+const W12MForm: React.FC<FormProps> = ({ formData, handleFormData }) => {
   const twoPlusTwoOptions = ["Not 4", "4"];
-  const [whatIsTwoPlusTwo, setWhatIsTwoPlusTwo] = useState<string>(
-    twoPlusTwoOptions[0]
+  const [speciesName, setSpeciesName] = useState<string>(formData.speciesName);
+  const [planetName, setPlanetName] = useState<string>(formData.planetName);
+  const [numberOfBeings, setNumberOfBeings] = useState<string>(
+    formData.numberOfBeings
   );
-  const [reasonForSparing, setReasonForSparing] = useState<string>("");
+  const [whatIsTwoPlusTwo, setWhatIsTwoPlusTwo] = useState<string>(
+    formData.twoPlusTwo
+  );
+  const [reasonForSparing, setReasonForSparing] = useState<string>(
+    formData.reasonForSparing
+  );
 
   const saveApplication = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    console.log(`Species name is ${speciesName}`);
-    console.log(`Planet name is ${planetName}`);
-    console.log(`Number of beings is ${numberOfBeings}`);
-    console.log(`2 + 2 is ${whatIsTwoPlusTwo}`);
-    console.log(`Reason for sparing is ${reasonForSparing}`);
+    const newFormData: FormData = {
+      speciesName: speciesName,
+      planetName: planetName,
+      numberOfBeings: numberOfBeings,
+      twoPlusTwo: whatIsTwoPlusTwo,
+      reasonForSparing: reasonForSparing,
+      submitted: true,
+    };
+    handleFormData(newFormData);
     setSpeciesName("");
     setPlanetName("");
     setNumberOfBeings("");
