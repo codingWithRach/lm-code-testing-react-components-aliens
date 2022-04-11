@@ -31,39 +31,41 @@ const W12MForm = () => {
     <section className="w12MForm">
       <W12MHeader />
       <table>
-        <TableRowInput
-          id="speciesName"
-          labelText="Species Name"
-          value={speciesName}
-          onChangeHandler={(event) => setSpeciesName(event.target.value)}
-        />
-        <TableRowInput
-          id="planetName"
-          labelText="Planet Name"
-          value={planetName}
-          onChangeHandler={(event) => setPlanetName(event.target.value)}
-        />
-        <TableRowInput
-          id="numberOfBeings"
-          labelText="Number of beings"
-          value={numberOfBeings}
-          onChangeHandler={(event) => setNumberOfBeings(event.target.value)}
-        />
-        <TableRowSelect
-          id="twoPlusTwo"
-          name={whatIsTwoPlusTwo}
-          labelText="What is 2 + 2?"
-          values={["not4", "4"]}
-          labels={["Not 4", "4"]}
-          onChangeHandler={(event) => setWhatIsTwoPlusTwo(event.target.value)}
-        />
-        <TableRowTextArea
-          id="reasonForSparing"
-          labelText="Reason for sparing"
-          value={reasonForSparing}
-          onChangeHandler={(event) => setReasonForSparing(event.target.value)}
-        />
-        <TableRowButton labelText="Submit" onClickHandler={saveApplication} />
+        <tbody>
+          <TableRowInput
+            id="speciesName"
+            labelText="Species Name"
+            value={speciesName}
+            onChangeHandler={(event) => setSpeciesName(event.target.value)}
+          />
+          <TableRowInput
+            id="planetName"
+            labelText="Planet Name"
+            value={planetName}
+            onChangeHandler={(event) => setPlanetName(event.target.value)}
+          />
+          <TableRowInput
+            id="numberOfBeings"
+            labelText="Number of beings"
+            value={numberOfBeings}
+            onChangeHandler={(event) => setNumberOfBeings(event.target.value)}
+          />
+          <TableRowSelect
+            id="twoPlusTwo"
+            name={whatIsTwoPlusTwo}
+            labelText="What is 2 + 2?"
+            values={["not4", "4"]}
+            labels={["Not 4", "4"]}
+            onChangeHandler={(event) => setWhatIsTwoPlusTwo(event.target.value)}
+          />
+          <TableRowTextArea
+            id="reasonForSparing"
+            labelText="Reason for sparing"
+            value={reasonForSparing}
+            onChangeHandler={(event) => setReasonForSparing(event.target.value)}
+          />
+          <TableRowButton labelText="Submit" onClickHandler={saveApplication} />
+        </tbody>
       </table>
     </section>
   );
