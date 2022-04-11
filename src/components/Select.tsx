@@ -21,8 +21,11 @@ const Select: React.FC<SelectProps> = ({
         onChange={onChangeHandler}
         key={`${name}_${values[0]}`}
       >
-        <option value={values[0]}>{labels[0]}</option>
-        <option value={values[1]}>{labels[1]}</option>
+        {values.map((value, index) => (
+          <option key={value} value={value}>
+            {labels[index]}
+          </option>
+        ))}
       </select>
     </>
   );
