@@ -10,7 +10,10 @@ const W12MForm = () => {
   const [speciesName, setSpeciesName] = useState<string>("");
   const [planetName, setPlanetName] = useState<string>("");
   const [numberOfBeings, setNumberOfBeings] = useState<string>("");
-  const [whatIsTwoPlusTwo, setWhatIsTwoPlusTwo] = useState<string>("");
+  const twoPlusTwoOptions = ["Not 4", "4"];
+  const [whatIsTwoPlusTwo, setWhatIsTwoPlusTwo] = useState<string>(
+    twoPlusTwoOptions[0]
+  );
   const [reasonForSparing, setReasonForSparing] = useState<string>("");
 
   const saveApplication = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -23,7 +26,6 @@ const W12MForm = () => {
     setSpeciesName("");
     setPlanetName("");
     setNumberOfBeings("");
-    setWhatIsTwoPlusTwo("");
     setReasonForSparing("");
   };
 
@@ -52,11 +54,13 @@ const W12MForm = () => {
           />
           <TableRowSelect
             id="twoPlusTwo"
-            name={whatIsTwoPlusTwo}
             labelText="What is 2 + 2?"
-            values={["not4", "4"]}
-            labels={["Not 4", "4"]}
-            onChangeHandler={(event) => setWhatIsTwoPlusTwo(event.target.value)}
+            values={twoPlusTwoOptions}
+            onChangeHandler={(event) =>
+              setWhatIsTwoPlusTwo(
+                twoPlusTwoOptions[parseInt(event.target.value)]
+              )
+            }
           />
           <TableRowTextArea
             id="reasonForSparing"
@@ -70,7 +74,5 @@ const W12MForm = () => {
     </section>
   );
 };
-
-// <SpeciesName speciesName={speciesName} onChangeSpeciesName={(e : any) => setSpeciesName(e.target.value)} />
 
 export default W12MForm;

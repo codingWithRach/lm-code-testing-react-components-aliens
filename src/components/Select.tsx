@@ -1,29 +1,16 @@
 interface SelectProps {
   id: string;
-  name: string;
   values: Array<string>;
-  labels: Array<string>;
   onChangeHandler: React.ChangeEventHandler<HTMLSelectElement>;
 }
 
-const Select: React.FC<SelectProps> = ({
-  id,
-  name,
-  values,
-  labels,
-  onChangeHandler,
-}) => {
+const Select: React.FC<SelectProps> = ({ id, values, onChangeHandler }) => {
   return (
     <>
-      <select
-        name={name}
-        id={id}
-        onChange={onChangeHandler}
-        key={`${name}_${values[0]}`}
-      >
+      <select id={id} onChange={onChangeHandler}>
         {values.map((value, index) => (
-          <option key={value} value={value}>
-            {labels[index]}
+          <option key={index} value={index}>
+            {value}
           </option>
         ))}
       </select>
