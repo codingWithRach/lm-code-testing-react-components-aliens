@@ -2,16 +2,10 @@ import { useState } from "react";
 import W12MForm from "./W12MForm";
 import { FormData } from "../data/FormData";
 import EnteredData from "./EnteredData";
+import { getDefaultFormData } from "../data/getFormData";
 
 const Layout = () => {
-  const defaultFormData: FormData = {
-    speciesName: "",
-    planetName: "",
-    numberOfBeings: "",
-    twoPlusTwo: "Not 4",
-    reasonForSparing: "",
-    submitted: false,
-  };
+  const defaultFormData: FormData = getDefaultFormData();
   const [formData, setFormData] = useState<FormData>(defaultFormData);
 
   return (
