@@ -6,3 +6,14 @@ export interface FormData {
   reasonForSparing: string;
   submitted: boolean;
 }
+
+export function getDefaultFormData(): FormData {
+  return {
+    speciesName: "",
+    planetName: "",
+    numberOfBeings: "",
+    twoPlusTwo: "Not 4",
+    reasonForSparing: "",
+    submitted: false,
+  };
+}
