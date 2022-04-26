@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import EnteredData from "./EnteredData";
-import { FormData } from "../data/FormData";
+import { FormData } from "../../data/FormData";
 
 const dummyData: FormData = {
   speciesName: "Hippo",

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import W12MForm from "./W12MForm";
 import { FormData, getDefaultFormData } from "../data/FormData";
-import EnteredData from "./EnteredData";
+import EnteredData from "./EnteredData/EnteredData";
 
 const Layout = () => {
   const defaultFormData: FormData = getDefaultFormData();

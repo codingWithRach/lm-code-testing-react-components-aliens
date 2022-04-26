@@ -2,7 +2,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import Layout from "./Layout";
 import { configure, mount } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
-import EnteredData from "./EnteredData";
+import EnteredData from "./EnteredData/EnteredData";
 import W12MForm from "./W12MForm";
 
 configure({ adapter: new Adapter() });

@@ -1,4 +1,4 @@
-import { FormData } from "../data/FormData";
+import { FormData } from "../../data/FormData";
 
 interface EnteredDataProps {
   formData: FormData;
