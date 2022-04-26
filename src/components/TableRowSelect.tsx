@@ -1,4 +1,4 @@
-import Label from "./Label";
+import Label from "./Label/Label";
 import Select from "./Select";
 
 interface TableRowProps {
