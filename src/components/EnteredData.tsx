@@ -7,17 +7,13 @@ interface EnteredDataProps {
 const EnteredData: React.FC<EnteredDataProps> = ({ formData }) => (
   <>
     <h2>Data submitted on form:</h2>
-    <p>
-      {`Species name is: ${formData.speciesName}`}
-      <br />
-      {`Planet name is: ${formData.planetName}`}
-      <br />
-      {`Number of beings is: ${formData.numberOfBeings}`}
-      <br />
-      {`2 + 2 is: ${formData.twoPlusTwo}`}
-      <br />
-      {`Reason for sparing is: ${formData.reasonForSparing}`}
-    </p>
+    <div>
+      <div>{`Species name is: ${formData.speciesName}`}</div>
+      <div>{`Planet name is: ${formData.planetName}`}</div>
+      <div>{`Number of beings is: ${formData.numberOfBeings}`}</div>
+      <div>{`2 + 2 is: ${formData.twoPlusTwo}`}</div>
+      <div>{`Reason for sparing is: ${formData.reasonForSparing}`}</div>
+    </div>
   </>
 );
 
