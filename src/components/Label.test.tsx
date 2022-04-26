@@ -15,3 +15,9 @@ test("checks that label is only rendered once", () => {
   const labelElements = screen.getAllByText(dummyLabelText);
   expect(labelElements.length).toEqual(1);
 });
+
+test("checks that label has correct class", () => {
+  render(<Label forID={dummyId} labelText={dummyLabelText} />);
+  const labelElement = screen.getByText(dummyLabelText);
+  expect(labelElement).toHaveClass("form__text");
+});
