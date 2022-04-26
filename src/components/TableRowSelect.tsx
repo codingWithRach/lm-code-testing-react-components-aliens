@@ -1,5 +1,5 @@
 import Label from "./Label/Label";
-import Select from "./Select";
+import Select from "./Select/Select";
 
 interface TableRowProps {
   id: string;
