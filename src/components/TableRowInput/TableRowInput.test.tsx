@@ -2,7 +2,7 @@ import TableRowInput from "./TableRowInput";
 import { configure, mount } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import Label from "../Label/Label";
-import TextInput from "../TextInput";
+import TextInput from "../TextInput/TextInput";
 
 configure({ adapter: new Adapter() });
 

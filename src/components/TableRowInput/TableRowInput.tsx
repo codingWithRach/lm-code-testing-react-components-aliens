@@ -1,5 +1,5 @@
 import Label from "../Label/Label";
-import TextInput from "../TextInput";
+import TextInput from "../TextInput/TextInput";
 
 interface TableRowProps {
   id: string;
