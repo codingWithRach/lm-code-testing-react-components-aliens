@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import W12MHeader from "../W12MHeader";
-
+import W12MHeader from "../W12MHeader/W12MHeader";
 import TableRowInput from "../TableRowInput/TableRowInput";
 import TableRowSelect from "../TableRowSelect/TableRowSelect";
 import TableRowTextArea from "../TableRowTextArea/TableRowTextarea";

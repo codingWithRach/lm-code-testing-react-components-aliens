@@ -6,7 +6,7 @@ import TableRowButton from "../TableRowButton/TableRowButton";
 import TableRowInput from "../TableRowInput/TableRowInput";
 import TableRowSelect from "../TableRowSelect/TableRowSelect";
 import TableRowTextarea from "../TableRowTextArea/TableRowTextarea";
-import W12MHeader from "../W12MHeader";
+import W12MHeader from "../W12MHeader/W12MHeader";
 import W12MForm from "./W12MForm";
 
 configure({ adapter: new Adapter() });
