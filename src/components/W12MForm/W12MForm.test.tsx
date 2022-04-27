@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { configure, mount } from "enzyme";
+import { configure, mount, shallow } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import { FormData } from "../../data/FormData";
 import TableRowSubmitButton from "../TableRowSubmitButton/TableRowSubmitButton";
@@ -9,6 +9,7 @@ import TableRowSelect from "../TableRowSelect/TableRowSelect";
 import TableRowTextarea from "../TableRowTextArea/TableRowTextarea";
 import W12MHeader from "../W12MHeader/W12MHeader";
 import W12MForm from "./W12MForm";
+import SubmitButton from "../SubmitButton/SubmitButton";
 
 configure({ adapter: new Adapter() });
 
@@ -74,6 +75,16 @@ test("renders components in a table", () => {
   const element = screen.getByRole("table");
   expect(element).toBeInTheDocument();
 });
+
+// test("calls function when form submitted", () => {
+//   const submitFunction = jest.fn();
+//   const fakeEvent = { preventDefault: () => {} };
+//   const component = shallow(
+//     <W12MForm formData={dummyData} handleFormData={mockFunction} />
+//   );
+//   component.find("form").simulate("submit", fakeEvent);
+//   expect(submitFunction).toHaveBeenCalled();
+// });
 
 test("when the species name is valid, doesn't render error message", async () => {
   render(<W12MForm formData={dummyData} handleFormData={mockFunction} />);
