@@ -4,7 +4,7 @@ import W12MHeader from "./W12MHeader";
 import TableRowInput from "./TableRowInput";
 import TableRowSelect from "./TableRowSelect";
 import TableRowTextArea from "./TableRowTextarea";
-import TableRowButton from "./TableRowButton";
+import TableRowButton from "./TableRowButton/TableRowButton";
 import { FormData } from "../data/FormData";
 
 interface FormProps {
