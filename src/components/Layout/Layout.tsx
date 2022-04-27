@@ -2,6 +2,7 @@ import { useState } from "react";
 import W12MForm from "../W12MForm/W12MForm";
 import { FormData, getDefaultFormData } from "../../data/FormData";
 import EnteredData from "../EnteredData/EnteredData";
+import ErrorMessageProvider from "../../context_providers/ErrorMessageContext";
 
 const Layout = () => {
   const defaultFormData: FormData = getDefaultFormData();
@@ -10,7 +11,9 @@ const Layout = () => {
   return (
     <>
       <h1>W-12-M :- APPLICATION TO SPARE PLANET FROM DESTRUCTION</h1>
-      <W12MForm formData={formData} handleFormData={setFormData} />
+      <ErrorMessageProvider>
+        <W12MForm formData={formData} handleFormData={setFormData} />
+      </ErrorMessageProvider>
       {formData.submitted && <EnteredData formData={formData} />}
     </>
   );

@@ -4,6 +4,7 @@ import { configure, mount } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import EnteredData from "../EnteredData/EnteredData";
 import W12MForm from "../W12MForm/W12MForm";
+import * as validationObject from "../../validation";
 
 configure({ adapter: new Adapter() });
 
@@ -28,6 +29,7 @@ test("does not render entered data if form has not been submitted", () => {
 test("renders entered data if form has been submitted", () => {
   render(<Layout />);
   const buttonComponent = screen.getByRole("button");
+  jest.spyOn(validationObject, "validForm").mockReturnValue(true);
   fireEvent.click(buttonComponent);
   const dataElement = screen.getByText("Data submitted on form:");
   expect(dataElement).toBeInTheDocument();

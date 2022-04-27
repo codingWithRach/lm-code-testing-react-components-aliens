@@ -5,6 +5,13 @@ import TableRowSelect from "../TableRowSelect/TableRowSelect";
 import TableRowTextArea from "../TableRowTextArea/TableRowTextarea";
 import TableRowButton from "../TableRowButton/TableRowButton";
 import { FormData } from "../../data/FormData";
+import {
+  useErrorMessage,
+  useErrorMessageUpdate,
+  IErrorMessageContext,
+} from "../../context_providers/ErrorMessageContext";
+import TableRowErrorMessage from "../TableRowErrorMessage/TableRowErrorMessage";
+import { validForm } from "../../validation";
 
 interface FormProps {
   formData: FormData;
@@ -24,6 +31,8 @@ const W12MForm: React.FC<FormProps> = ({ formData, handleFormData }) => {
   const [reasonForSparing, setReasonForSparing] = useState<string>(
     formData.reasonForSparing
   );
+  const errorMessages: IErrorMessageContext = useErrorMessage();
+  const updateErrorMessages = useErrorMessageUpdate();
 
   const saveApplication = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
@@ -35,11 +44,13 @@ const W12MForm: React.FC<FormProps> = ({ formData, handleFormData }) => {
       reasonForSparing: reasonForSparing,
       submitted: true,
     };
-    handleFormData(newFormData);
-    setSpeciesName("");
-    setPlanetName("");
-    setNumberOfBeings("");
-    setReasonForSparing("");
+    if (validForm(newFormData, updateErrorMessages)) {
+      handleFormData(newFormData);
+      setSpeciesName("");
+      setPlanetName("");
+      setNumberOfBeings("");
+      setReasonForSparing("");
+    }
   };
 
   return (
@@ -53,6 +64,9 @@ const W12MForm: React.FC<FormProps> = ({ formData, handleFormData }) => {
             value={speciesName}
             onChangeHandler={(event) => setSpeciesName(event.target.value)}
           />
+          {errorMessages.speciesError.length > 0 && (
+            <TableRowErrorMessage errorMessage={errorMessages.speciesError} />
+          )}
           <TableRowInput
             id="planetName"
             labelText="Planet Name"
