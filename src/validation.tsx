@@ -7,7 +7,7 @@ export const validForm = (
 ): boolean => {
   const errorMessages: IErrorMessageContext = {
     speciesError: validSpeciesName(formData.speciesName),
-    planetError: "",
+    planetError: validPlanetName(formData.planetName),
     beingsError: "",
     twoPlusTwoError: "",
     reasonError: "",
@@ -24,11 +24,29 @@ const allFieldsValid = (errorMessages: IErrorMessageContext): boolean => {
 };
 
 const validSpeciesName = (species: string): string => {
+  return validField(
+    species,
+    /^[a-zA-Z]{3,23}$/,
+    "Species Name must be between 3 and 23 characters, and can only contain letters"
+  );
+};
+
+const validPlanetName = (planet: string): string => {
+  return validField(
+    planet,
+    /^[a-zA-Z0-9]{2,49}$/,
+    "Planet Name must be between 2 and 49 characters, and can only contain letters and numbers"
+  );
+};
+
+const validField = (
+  fieldValue: string,
+  regex: RegExp,
+  message: string
+): string => {
   let errorMessage = "";
-  const regex = /^[a-zA-Z]{3,23}$/;
-  if (regex.test(species) === false) {
-    errorMessage =
-      "Species Name must be between 3 and 23 characters, and can only contain letters";
+  if (regex.test(fieldValue) === false) {
+    errorMessage = message;
   }
   return errorMessage;
 };

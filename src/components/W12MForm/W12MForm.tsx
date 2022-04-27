@@ -73,6 +73,9 @@ const W12MForm: React.FC<FormProps> = ({ formData, handleFormData }) => {
             value={planetName}
             onChangeHandler={(event) => setPlanetName(event.target.value)}
           />
+          {errorMessages.planetError.length > 0 && (
+            <TableRowErrorMessage errorMessage={errorMessages.planetError} />
+          )}
           <TableRowInput
             id="numberOfBeings"
             labelText="Number of beings"
