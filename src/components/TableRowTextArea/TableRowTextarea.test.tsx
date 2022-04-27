@@ -2,7 +2,7 @@ import TableRowTextarea from "./TableRowTextarea";
 import { configure, mount } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import Label from "../Label/Label";
-import TextArea from "../Textarea";
+import TextArea from "../Textarea/Textarea";
 
 configure({ adapter: new Adapter() });
 

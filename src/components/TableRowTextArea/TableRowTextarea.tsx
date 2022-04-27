@@ -1,5 +1,5 @@
 import Label from "../Label/Label";
-import Textarea from "../Textarea";
+import Textarea from "../Textarea/Textarea";
 
 interface TableRowProps {
   id: string;
