@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import W12MHeader from "./W12MHeader";
 
-import TableRowInput from "./TableRowInput";
+import TableRowInput from "./TableRowInput/TableRowInput";
 import TableRowSelect from "./TableRowSelect";
 import TableRowTextArea from "./TableRowTextarea";
 import TableRowButton from "./TableRowButton/TableRowButton";
