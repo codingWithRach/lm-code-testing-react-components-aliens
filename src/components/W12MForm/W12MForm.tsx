@@ -95,12 +95,20 @@ const W12MForm: React.FC<FormProps> = ({ formData, handleFormData }) => {
               )
             }
           />
+          {errorMessages.twoPlusTwoError.length > 0 && (
+            <TableRowErrorMessage
+              errorMessage={errorMessages.twoPlusTwoError}
+            />
+          )}
           <TableRowTextArea
             id="reasonForSparing"
             labelText="Reason for sparing"
             value={reasonForSparing}
             onChangeHandler={(event) => setReasonForSparing(event.target.value)}
           />
+          {errorMessages.reasonError.length > 0 && (
+            <TableRowErrorMessage errorMessage={errorMessages.reasonError} />
+          )}
           <TableRowButton labelText="Submit" onClickHandler={saveApplication} />
         </tbody>
       </table>

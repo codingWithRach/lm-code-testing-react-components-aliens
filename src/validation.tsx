@@ -9,8 +9,8 @@ export const validForm = (
     speciesError: validSpeciesName(formData.speciesName),
     planetError: validPlanetName(formData.planetName),
     beingsError: validNumberOfBeings(formData.numberOfBeings),
-    twoPlusTwoError: "",
-    reasonError: "",
+    twoPlusTwoError: validTwoPlusTwo(formData.twoPlusTwo),
+    reasonError: validReasonForSparing(formData.reasonForSparing),
   };
   updateErrorMessages(errorMessages);
   return allFieldsValid(errorMessages);
@@ -44,6 +44,18 @@ const validNumberOfBeings = (numberOfBeings: string): string => {
     numberOfBeings,
     /^[0-9]{10,}$/,
     "Number of Beings must be a number no less than 1,000,000,000"
+  );
+};
+
+const validTwoPlusTwo = (whatIsTwoPlusTwo: string): string => {
+  return validField(whatIsTwoPlusTwo, /^4$/, "2 + 2 must equal 4");
+};
+
+const validReasonForSparing = (reasonForSparing: string): string => {
+  return validField(
+    reasonForSparing,
+    /^.{17,153}$/,
+    "Reason for Sparing must be between 17 and 153 characters"
   );
 };
 
