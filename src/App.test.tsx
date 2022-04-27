@@ -1,10 +1,12 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { configure, mount } from "enzyme";
+import Adapter from "enzyme-adapter-react-16";
+import App from "./App";
+import Layout from "./components/Layout/Layout";
 
-test('renders form title', () => {
-	render(<App />);
-	const formTitle = screen.getByText(
-		/W-12-M :- APPLICATION TO SPARE PLANET FROM DESTRUCTION/i
-	);
-	expect(formTitle).toBeInTheDocument();
+configure({ adapter: new Adapter() });
+
+test("renders Layout component", () => {
+  const wrapper = mount(<App />);
+  const component = wrapper.find(Layout);
+  expect(component.length).toBe(1);
 });
