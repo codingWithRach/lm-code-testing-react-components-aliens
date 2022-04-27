@@ -1,5 +1,5 @@
 import { useState } from "react";
-import W12MForm from "../W12MForm";
+import W12MForm from "../W12MForm/W12MForm";
 import { FormData, getDefaultFormData } from "../../data/FormData";
 import EnteredData from "../EnteredData/EnteredData";
 
