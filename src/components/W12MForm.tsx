@@ -3,7 +3,7 @@ import W12MHeader from "./W12MHeader";
 
 import TableRowInput from "./TableRowInput/TableRowInput";
 import TableRowSelect from "./TableRowSelect/TableRowSelect";
-import TableRowTextArea from "./TableRowTextarea";
+import TableRowTextArea from "./TableRowTextArea/TableRowTextarea";
 import TableRowButton from "./TableRowButton/TableRowButton";
 import { FormData } from "../data/FormData";
 
