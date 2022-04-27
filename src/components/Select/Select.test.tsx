@@ -7,11 +7,11 @@ configure({ adapter: new Adapter() });
 
 const dummyId = "linkToLabel";
 const dummyValues = ["Value One", "Value Two"];
-const mockClick = jest.fn();
+const mockChange = jest.fn();
 
 test("renders the select options with expected text", () => {
   render(
-    <Select id={dummyId} values={dummyValues} onChangeHandler={mockClick} />
+    <Select id={dummyId} values={dummyValues} onChangeHandler={mockChange} />
   );
   dummyValues.forEach((value) => {
     const optionElement = screen
@@ -26,9 +26,9 @@ test("checks that function is called when select option is changed", () => {
     target: { value: dummyValues[0] },
   } as React.ChangeEvent<HTMLSelectElement>;
   const selectElement = shallow(
-    <Select id={dummyId} values={dummyValues} onChangeHandler={mockClick} />
+    <Select id={dummyId} values={dummyValues} onChangeHandler={mockChange} />
   );
   selectElement.find("select").simulate("change", event);
-  expect(mockClick.mock.calls.length).toEqual(1);
-  expect(mockClick.mock.calls[0][0].target.value).toBe(dummyValues[0]);
+  expect(mockChange.mock.calls.length).toEqual(1);
+  expect(mockChange.mock.calls[0][0].target.value).toBe(dummyValues[0]);
 });
