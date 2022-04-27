@@ -82,6 +82,9 @@ const W12MForm: React.FC<FormProps> = ({ formData, handleFormData }) => {
             value={numberOfBeings}
             onChangeHandler={(event) => setNumberOfBeings(event.target.value)}
           />
+          {errorMessages.beingsError.length > 0 && (
+            <TableRowErrorMessage errorMessage={errorMessages.beingsError} />
+          )}
           <TableRowSelect
             id="twoPlusTwo"
             labelText="What is 2 + 2?"

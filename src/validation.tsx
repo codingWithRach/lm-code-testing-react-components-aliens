@@ -8,7 +8,7 @@ export const validForm = (
   const errorMessages: IErrorMessageContext = {
     speciesError: validSpeciesName(formData.speciesName),
     planetError: validPlanetName(formData.planetName),
-    beingsError: "",
+    beingsError: validNumberOfBeings(formData.numberOfBeings),
     twoPlusTwoError: "",
     reasonError: "",
   };
@@ -36,6 +36,14 @@ const validPlanetName = (planet: string): string => {
     planet,
     /^[a-zA-Z0-9]{2,49}$/,
     "Planet Name must be between 2 and 49 characters, and can only contain letters and numbers"
+  );
+};
+
+const validNumberOfBeings = (numberOfBeings: string): string => {
+  return validField(
+    numberOfBeings,
+    /^[0-9]{10,}$/,
+    "Number of Beings must be a number no less than 1,000,000,000"
   );
 };
 
