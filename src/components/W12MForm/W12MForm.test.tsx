@@ -1,4 +1,5 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { configure, mount } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import { FormData } from "../../data/FormData";
@@ -73,3 +74,39 @@ test("renders components in a table", () => {
   const element = screen.getByRole("table");
   expect(element).toBeInTheDocument();
 });
+
+test("when the species name is valid, doesn't render error message", async () => {
+  render(<W12MForm formData={dummyData} handleFormData={mockFunction} />);
+  const element = screen.getByLabelText("Species Name");
+  await userEvent.type(element, "valid");
+  const buttonComponent = screen.getByRole("button");
+  fireEvent.click(buttonComponent);
+  const errorElement = screen.queryByText(/Species Name must be/i, {
+    exact: false,
+  });
+  expect(errorElement).not.toBeInTheDocument();
+});
+
+// test("when the species name is invalid, renders error message", async () => {
+//   render(<W12MForm formData={dummyData} handleFormData={mockFunction} />);
+//   const element = screen.getByLabelText("Species Name");
+//   fireEvent.change(element, { target: { value: "i n v a l i d" } });
+//   const buttonComponent = screen.getByRole("button");
+//   fireEvent.click(buttonComponent);
+//   const errorElement = screen.getByText(/Species Name must be/i, {
+//     exact: false,
+//   });
+//   expect(errorElement).toBeInTheDocument();
+// });
+
+// test("when the species name is invalid, renders error message", async () => {
+//   render(<W12MForm formData={dummyData} handleFormData={mockFunction} />);
+//   const element = screen.getByLabelText("Species Name");
+//   await userEvent.type(element, "i n v a l i d");
+//   const buttonComponent = screen.getByRole("button");
+//   fireEvent.click(buttonComponent);
+//   const errorElement = screen.queryByText(/Species Name must be/i, {
+//     exact: false,
+//   });
+//   expect(errorElement).toBeInTheDocument();
+// });
