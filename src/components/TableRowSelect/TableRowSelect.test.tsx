@@ -1,5 +1,5 @@
 import TableRowSelect from "./TableRowSelect";
-import { configure, mount } from "enzyme";
+import { configure, shallow } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import Label from "../Label/Label";
 import Select from "../Select/Select";
@@ -12,7 +12,7 @@ const dummyValues = ["Value One", "Value Two"];
 const mockChange = jest.fn();
 
 test("renders Label (child component)", () => {
-  const wrapper = mount(
+  const wrapper = shallow(
     <TableRowSelect
       id={dummyId}
       labelText={dummyLabelText}
@@ -25,7 +25,7 @@ test("renders Label (child component)", () => {
 });
 
 test("renders Select (child component)", () => {
-  const wrapper = mount(
+  const wrapper = shallow(
     <TableRowSelect
       id={dummyId}
       labelText={dummyLabelText}

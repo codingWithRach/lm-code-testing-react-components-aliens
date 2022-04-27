@@ -1,5 +1,5 @@
 import TableRowInput from "./TableRowInput";
-import { configure, mount } from "enzyme";
+import { configure, shallow } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import Label from "../Label/Label";
 import TextInput from "../TextInput/TextInput";
@@ -12,7 +12,7 @@ const dummyValue = "dummy value";
 const mockChange = jest.fn();
 
 test("renders Label (child component)", () => {
-  const wrapper = mount(
+  const wrapper = shallow(
     <TableRowInput
       id={dummyId}
       labelText={dummyLabelText}
@@ -25,7 +25,7 @@ test("renders Label (child component)", () => {
 });
 
 test("renders TextInput (child component)", () => {
-  const wrapper = mount(
+  const wrapper = shallow(
     <TableRowInput
       id={dummyId}
       labelText={dummyLabelText}

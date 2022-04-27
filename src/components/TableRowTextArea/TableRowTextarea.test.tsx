@@ -1,5 +1,5 @@
 import TableRowTextarea from "./TableRowTextarea";
-import { configure, mount } from "enzyme";
+import { configure, shallow } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import Label from "../Label/Label";
 import TextArea from "../Textarea/Textarea";
@@ -12,7 +12,7 @@ const dummyValue = "dummy value";
 const mockChange = jest.fn();
 
 test("renders Label (child component)", () => {
-  const wrapper = mount(
+  const wrapper = shallow(
     <TableRowTextarea
       id={dummyId}
       labelText={dummyLabelText}
@@ -25,7 +25,7 @@ test("renders Label (child component)", () => {
 });
 
 test("renders Textarea (child component)", () => {
-  const wrapper = mount(
+  const wrapper = shallow(
     <TableRowTextarea
       id={dummyId}
       labelText={dummyLabelText}
