@@ -52,11 +52,11 @@ const validTwoPlusTwo = (whatIsTwoPlusTwo: string): string => {
 };
 
 const validReasonForSparing = (reasonForSparing: string): string => {
-  return validField(
-    reasonForSparing,
-    /^.{17,153}$/,
-    "Reason for Sparing must be between 17 and 153 characters"
-  );
+  let errorMessage = "";
+  if (reasonForSparing.length < 17 || reasonForSparing.length > 153) {
+    errorMessage = "Reason for Sparing must be between 17 and 153 characters";
+  }
+  return errorMessage;
 };
 
 const validField = (

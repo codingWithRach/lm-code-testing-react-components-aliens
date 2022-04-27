@@ -3,7 +3,7 @@ import userEvent from "@testing-library/user-event";
 import { configure, mount } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import { FormData } from "../../data/FormData";
-import TableRowButton from "../TableRowButton/TableRowButton";
+import TableRowSubmitButton from "../TableRowSubmitButton/TableRowSubmitButton";
 import TableRowInput from "../TableRowInput/TableRowInput";
 import TableRowSelect from "../TableRowSelect/TableRowSelect";
 import TableRowTextarea from "../TableRowTextArea/TableRowTextarea";
@@ -61,11 +61,11 @@ test("renders 1 instance of TableRowTextArea (child component)", () => {
   expect(component.length).toBe(1);
 });
 
-test("renders 1 instance of TableRowButton (child component)", () => {
+test("renders 1 instance of TableRowSubmitButton (child component)", () => {
   const wrapper = mount(
     <W12MForm formData={dummyData} handleFormData={mockFunction} />
   );
-  const component = wrapper.find(TableRowButton);
+  const component = wrapper.find(TableRowSubmitButton);
   expect(component.length).toBe(1);
 });
 
