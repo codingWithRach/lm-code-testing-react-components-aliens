@@ -3,9 +3,7 @@ interface SubmitButtonProps {
 }
 
 const SubmitButton: React.FC<SubmitButtonProps> = ({ labelText }) => (
-  <>
-    <button type="submit">{labelText}</button>
-  </>
+  <button type="submit">{labelText}</button>
 );
 
 export default SubmitButton;
