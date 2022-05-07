@@ -5,6 +5,7 @@ export interface FormData {
   twoPlusTwo: string;
   reasonForSparing: string;
   submitted: boolean;
+  [index: string]: any;
 }
 
 export function getDefaultFormData(): FormData {

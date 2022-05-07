@@ -57,7 +57,7 @@ test("renders components in a table", () => {
 //   const submitFunction = jest.fn();
 //   const fakeEvent = { preventDefault: () => {} };
 //   const component = shallow(
-//     <W12MForm formData={dummyData} handleFormData={mockFunction} />
+//     <W12MForm />
 //   );
 //   component.find("form").simulate("submit", fakeEvent);
 //   expect(submitFunction).toHaveBeenCalled();

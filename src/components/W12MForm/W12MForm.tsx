@@ -21,16 +21,8 @@ const W12MForm: React.FC = () => {
   const formData = useFormData();
   const updateFormData = useFormDataUpdate();
   const twoPlusTwoOptions = ["Not 4", "4"];
-  const [speciesName, setSpeciesName] = useState<string>(formData.speciesName);
-  const [planetName, setPlanetName] = useState<string>(formData.planetName);
-  const [numberOfBeings, setNumberOfBeings] = useState<string>(
-    formData.numberOfBeings
-  );
   const [whatIsTwoPlusTwo, setWhatIsTwoPlusTwo] = useState<string>(
     formData.twoPlusTwo
-  );
-  const [reasonForSparing, setReasonForSparing] = useState<string>(
-    formData.reasonForSparing
   );
   const errorMessages: IErrorMessageContext = useErrorMessage();
   const updateErrorMessages = useErrorMessageUpdate();
@@ -38,20 +30,19 @@ const W12MForm: React.FC = () => {
   const saveApplication = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const newFormData: FormData = {
-      speciesName: speciesName,
-      planetName: planetName,
-      numberOfBeings: numberOfBeings,
+      ...formData,
       twoPlusTwo: whatIsTwoPlusTwo,
-      reasonForSparing: reasonForSparing,
       submitted: true,
     };
     if (validForm(newFormData, updateErrorMessages)) {
       updateFormData(newFormData);
-      setSpeciesName("");
-      setPlanetName("");
-      setNumberOfBeings("");
-      setReasonForSparing("");
     }
+  };
+
+  const updateField = (fieldName: string, newValue: string) => {
+    let newFormData: FormData = { ...formData };
+    newFormData[fieldName] = newValue;
+    updateFormData(newFormData);
   };
 
   return (
@@ -63,8 +54,10 @@ const W12MForm: React.FC = () => {
             <TableRowInput
               id="speciesName"
               labelText="Species Name"
-              value={speciesName}
-              onChangeHandler={(event) => setSpeciesName(event.target.value)}
+              value={formData.speciesName}
+              onChangeHandler={(event) =>
+                updateField("speciesName", event.target.value)
+              }
             />
             {errorMessages.speciesError.length > 0 && (
               <TableRowErrorMessage errorMessage={errorMessages.speciesError} />
@@ -72,8 +65,10 @@ const W12MForm: React.FC = () => {
             <TableRowInput
               id="planetName"
               labelText="Planet Name"
-              value={planetName}
-              onChangeHandler={(event) => setPlanetName(event.target.value)}
+              value={formData.planetName}
+              onChangeHandler={(event) =>
+                updateField("planetName", event.target.value)
+              }
             />
             {errorMessages.planetError.length > 0 && (
               <TableRowErrorMessage errorMessage={errorMessages.planetError} />
@@ -81,8 +76,10 @@ const W12MForm: React.FC = () => {
             <TableRowInput
               id="numberOfBeings"
               labelText="Number of beings"
-              value={numberOfBeings}
-              onChangeHandler={(event) => setNumberOfBeings(event.target.value)}
+              value={formData.numberOfBeings}
+              onChangeHandler={(event) =>
+                updateField("numberOfBeings", event.target.value)
+              }
             />
             {errorMessages.beingsError.length > 0 && (
               <TableRowErrorMessage errorMessage={errorMessages.beingsError} />
@@ -105,9 +102,9 @@ const W12MForm: React.FC = () => {
             <TableRowTextArea
               id="reasonForSparing"
               labelText="Reason for sparing"
-              value={reasonForSparing}
+              value={formData.reasonForSparing}
               onChangeHandler={(event) =>
-                setReasonForSparing(event.target.value)
+                updateField("reasonForSparing", event.target.value)
               }
             />
             {errorMessages.reasonError.length > 0 && (
