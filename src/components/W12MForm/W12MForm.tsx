@@ -9,7 +9,7 @@ import {
   useErrorMessage,
   useErrorMessageUpdate,
   IErrorMessageContext,
-} from "../../context_providers/ErrorMessageContext";
+} from "../../ContextProviders/ErrorMessageContext";
 import TableRowErrorMessage from "../TableRowErrorMessage/TableRowErrorMessage";
 import { validForm } from "../../validation";
 

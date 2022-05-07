@@ -1,5 +1,5 @@
 import { FormData } from "./data/FormData";
-import { IErrorMessageContext } from "./context_providers/ErrorMessageContext";
+import { IErrorMessageContext } from "./ContextProviders/ErrorMessageContext";
 
 export const validForm = (
   formData: FormData,
