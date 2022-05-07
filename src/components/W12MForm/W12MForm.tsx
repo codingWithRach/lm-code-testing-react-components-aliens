@@ -12,13 +12,14 @@ import {
 } from "../../ContextProviders/ErrorMessageContext";
 import TableRowErrorMessage from "../TableRowErrorMessage/TableRowErrorMessage";
 import { validForm } from "../../validation";
+import {
+  useFormData,
+  useFormDataUpdate,
+} from "../../ContextProviders/FormDataContext";
 
-interface FormProps {
-  formData: FormData;
-  handleFormData: (formData: FormData) => void;
-}
-
-const W12MForm: React.FC<FormProps> = ({ formData, handleFormData }) => {
+const W12MForm: React.FC = () => {
+  const formData = useFormData();
+  const updateFormData = useFormDataUpdate();
   const twoPlusTwoOptions = ["Not 4", "4"];
   const [speciesName, setSpeciesName] = useState<string>(formData.speciesName);
   const [planetName, setPlanetName] = useState<string>(formData.planetName);
@@ -45,7 +46,7 @@ const W12MForm: React.FC<FormProps> = ({ formData, handleFormData }) => {
       submitted: true,
     };
     if (validForm(newFormData, updateErrorMessages)) {
-      handleFormData(newFormData);
+      updateFormData(newFormData);
       setSpeciesName("");
       setPlanetName("");
       setNumberOfBeings("");
