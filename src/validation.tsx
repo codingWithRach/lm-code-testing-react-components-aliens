@@ -23,24 +23,39 @@ const allFieldsValid = (errorMessages: IErrorMessageContext): boolean => {
   );
 };
 
-const validSpeciesName = (species: string): string => {
-  return validField(
-    species,
-    /^[a-zA-Z]{3,23}$/,
-    "Species Name must be between 3 and 23 characters, and can only contain letters"
-  );
-};
+const validSpeciesName = (species: string): string =>
+  validField(species, 3, 23, /^[a-zA-Z]*$/, "Species Name", "letters");
 
-const validPlanetName = (planet: string): string => {
-  return validField(
+const validPlanetName = (planet: string): string =>
+  validField(
     planet,
-    /^[a-zA-Z0-9]{2,49}$/,
-    "Planet Name must be between 2 and 49 characters, and can only contain letters and numbers"
+    2,
+    49,
+    /^[a-zA-Z0-9]*$/,
+    "Planet Name",
+    "letters and numbers"
+  );
+
+const validField = (
+  fieldValue: string,
+  minLength: number,
+  maxLength: number,
+  regex: RegExp,
+  fieldName: string,
+  contentMessage: string
+): string => {
+  return (
+    validLength(fieldValue, minLength, maxLength, fieldName) ||
+    validContent(
+      fieldValue,
+      regex,
+      `${fieldName} can only contain ${contentMessage}`
+    )
   );
 };
 
 const validNumberOfBeings = (numberOfBeings: string): string => {
-  return validField(
+  return validContent(
     numberOfBeings,
     /^[0-9]{10,}$/,
     "Number of Beings must be a number no less than 1,000,000,000"
@@ -48,18 +63,27 @@ const validNumberOfBeings = (numberOfBeings: string): string => {
 };
 
 const validTwoPlusTwo = (whatIsTwoPlusTwo: string): string => {
-  return validField(whatIsTwoPlusTwo, /^4$/, "2 + 2 must equal 4");
+  return validContent(whatIsTwoPlusTwo, /^4$/, "2 + 2 must equal 4");
 };
 
 const validReasonForSparing = (reasonForSparing: string): string => {
+  return validLength(reasonForSparing, 17, 153, "Reason for sparing");
+};
+
+const validLength = (
+  fieldValue: string,
+  minLength: number,
+  maxLength: number,
+  fieldName: string
+): string => {
   let errorMessage = "";
-  if (reasonForSparing.length < 17 || reasonForSparing.length > 153) {
-    errorMessage = "Reason for Sparing must be between 17 and 153 characters";
+  if (fieldValue.length < minLength || fieldValue.length > maxLength) {
+    errorMessage = `${fieldName} must be between ${minLength} and ${maxLength} characters`;
   }
   return errorMessage;
 };
 
-const validField = (
+const validContent = (
   fieldValue: string,
   regex: RegExp,
   message: string
