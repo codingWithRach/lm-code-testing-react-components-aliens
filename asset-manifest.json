@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/aliens/static/css/main.6af45dff.chunk.css",
-    "main.js": "/aliens/static/js/main.24bb0182.chunk.js",
-    "main.js.map": "/aliens/static/js/main.24bb0182.chunk.js.map",
-    "runtime-main.js": "/aliens/static/js/runtime-main.d9041e09.js",
-    "runtime-main.js.map": "/aliens/static/js/runtime-main.d9041e09.js.map",
-    "static/js/2.1cc2d182.chunk.js": "/aliens/static/js/2.1cc2d182.chunk.js",
-    "static/js/2.1cc2d182.chunk.js.map": "/aliens/static/js/2.1cc2d182.chunk.js.map",
-    "static/js/3.e1931e80.chunk.js": "/aliens/static/js/3.e1931e80.chunk.js",
-    "static/js/3.e1931e80.chunk.js.map": "/aliens/static/js/3.e1931e80.chunk.js.map",
-    "index.html": "/aliens/index.html",
-    "static/css/main.6af45dff.chunk.css.map": "/aliens/static/css/main.6af45dff.chunk.css.map",
-    "static/js/2.1cc2d182.chunk.js.LICENSE.txt": "/aliens/static/js/2.1cc2d182.chunk.js.LICENSE.txt"
+    "main.css": "/lm-code-testing-react-components-aliens/static/css/main.6af45dff.chunk.css",
+    "main.js": "/lm-code-testing-react-components-aliens/static/js/main.24bb0182.chunk.js",
+    "main.js.map": "/lm-code-testing-react-components-aliens/static/js/main.24bb0182.chunk.js.map",
+    "runtime-main.js": "/lm-code-testing-react-components-aliens/static/js/runtime-main.edd9eef8.js",
+    "runtime-main.js.map": "/lm-code-testing-react-components-aliens/static/js/runtime-main.edd9eef8.js.map",
+    "static/js/2.1cc2d182.chunk.js": "/lm-code-testing-react-components-aliens/static/js/2.1cc2d182.chunk.js",
+    "static/js/2.1cc2d182.chunk.js.map": "/lm-code-testing-react-components-aliens/static/js/2.1cc2d182.chunk.js.map",
+    "static/js/3.e1931e80.chunk.js": "/lm-code-testing-react-components-aliens/static/js/3.e1931e80.chunk.js",
+    "static/js/3.e1931e80.chunk.js.map": "/lm-code-testing-react-components-aliens/static/js/3.e1931e80.chunk.js.map",
+    "index.html": "/lm-code-testing-react-components-aliens/index.html",
+    "static/css/main.6af45dff.chunk.css.map": "/lm-code-testing-react-components-aliens/static/css/main.6af45dff.chunk.css.map",
+    "static/js/2.1cc2d182.chunk.js.LICENSE.txt": "/lm-code-testing-react-components-aliens/static/js/2.1cc2d182.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.d9041e09.js",
+    "static/js/runtime-main.edd9eef8.js",
     "static/js/2.1cc2d182.chunk.js",
     "static/css/main.6af45dff.chunk.css",
     "static/js/main.24bb0182.chunk.js"
