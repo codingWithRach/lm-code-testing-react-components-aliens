@@ -18,52 +18,6 @@ But don't be afraid - not even of the aliens. There are some extra hints availab
 
 Let's save humanity.
 
-🌍 🌍 🌍
+## Solution
 
-## Useful Links
-
-You might find some of the documentation helpful in writing your tests:
-
-[Testing Library Cheatsheet](https://testing-library.com/docs/react-testing-library/cheatsheet/)
-
-[Jest-DOM matchers](https://github.com/testing-library/jest-dom)
-
-[Jest Mock functions](https://jestjs.io/docs/mock-functions)
-
-## How to Get Started
-
-This repo contains the beginnings of an app, based on create-react-app.
-
-Fork this repo to your Github and then clone the forked version of this repo.
-
-To install the dependencies run:
-
-### `yarn install`
-
-or
-
-### `npm install`
-
-(They both do the same thing)
-
-Make sure you're in the right directory!
-
-To start the app:
-
-### `yarn start`
-
-or
-
-### `npm start`
-
-Runs the app in the development mode.
-
-The app should open in your browser.
-
-If the page doesn't open automatically, you can open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits 👍
-
-You will also see any lint errors in the console ✅
-
-Head over to [Activity 1](./activities/activity_1.md) to get started!
+The solution is available at https://codingwithrach.github.io/lm-code-testing-react-components-aliens/
